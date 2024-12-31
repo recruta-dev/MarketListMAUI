@@ -7,11 +7,19 @@
     Title="MarketList_MAUI">
 
     <TabBar>
-        <Tab Title="Home" Icon="home">
+        <Tab Title="Home" Icon="text">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
                           Route="MainPage"/>
         </Tab>
-        <Tab Title="Lista" Icon="home">
+        <Tab Title="Lista" Icon="clipboard">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
+                          Route="MainPage"/>
+        </Tab>
+        <Tab Title="Alterar Senha" Icon="locked">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
+                          Route="MainPage"/>
+        </Tab>
+        <Tab Title="Sair" Icon="logout">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
                           Route="MainPage"/>
         </Tab>
