@@ -15,11 +15,11 @@
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
                           Route="MainPage"/>
         </Tab>
-        <Tab Title="Alterar Senha" Icon="locked">
+        <Tab Title="Alterar Senha" Icon="locked" IsVisible="False">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
                           Route="MainPage"/>
         </Tab>
-        <Tab Title="Sair" Icon="logout">
+        <Tab Title="Sair" Icon="logout" IsVisible="False">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
                           Route="MainPage"/>
         </Tab>
