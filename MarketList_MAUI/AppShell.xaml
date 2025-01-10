@@ -7,7 +7,7 @@
     Title="MarketList_MAUI">
 
     <TabBar>
-        <Tab Title="Home" Icon="text">
+        <Tab Title="Histórico" Icon="text">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
                           Route="MainPage"/>
         </Tab>
