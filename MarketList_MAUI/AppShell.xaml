@@ -4,12 +4,13 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MarketList_MAUI"
+    xmlns:views="clr-namespace:MarketList_MAUI.Views"
     Title="MarketList_MAUI">
 
     <TabBar>
         <Tab Title="Histórico" Icon="text">
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
-                          Route="MainPage"/>
+            <ShellContent ContentTemplate="{DataTemplate views:HistoricoPage}"
+                          Route="HistoricoPage"/>
         </Tab>
         <Tab Title="Lista" Icon="clipboard">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"

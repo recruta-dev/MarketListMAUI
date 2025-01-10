@@ -1,7 +1,4 @@
-﻿using DevExpress.Maui;
-using Microsoft.Extensions.Logging;
-
-namespace MarketList_MAUI;
+﻿namespace MarketList_MAUI;
 
 public static class MauiProgram
 {
@@ -24,6 +21,11 @@ public static class MauiProgram
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
+        //Views
+        builder.Services.AddTransient<HistoricoPage>();
+
+        //ViewModels
+        builder.Services.AddScoped<ViewModelBase<Compra>, HistoricoViewModel>();
 
         return builder.Build();
     }

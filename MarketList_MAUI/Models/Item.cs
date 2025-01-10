@@ -3,6 +3,7 @@
 public class Item
 {
     public int Id { get; set; }
+    public int IdCompra { get; set; }
     public string? Nome { get; set; }
     public string? Descricao { get; set; }
     public decimal? Valor { get; set; }

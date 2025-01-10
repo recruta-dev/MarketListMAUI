@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dx="http://schemas.devexpress.com/maui"
              x:Class="MarketList_MAUI.Views.HistoricoPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout Padding="10">
+        <Label Text="Histórico de compras"
+               FontSize="Large"
+               Margin="0,0,0,40"
+               HorizontalOptions="Center"/>
+        <dx:DXCollectionView ItemsSource="{Binding ItemCollection}"
+                             SelectionMode="Single"
+                             ItemSeparatorThickness="1"
+                             ItemSeparatorColor="Grey">
+            <dx:DXCollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="Auto,Auto"
+                          ColumnDefinitions="Auto,*,Auto">
+                        <Label Grid.Column="0"
+                               Grid.Row="0"
+                               Text="{Binding Mercado}"/>
+                        <Label Grid.Column="2"
+                               Grid.Row="1"
+                               Text="{Binding RealizadaEm, StringFormat='{0:dd/MM/yyyy}'}"/>
+                    </Grid>
+                </DataTemplate>
+            </dx:DXCollectionView.ItemTemplate>
+        </dx:DXCollectionView>
     </VerticalStackLayout>
-</ContentView>
+</ContentPage>
