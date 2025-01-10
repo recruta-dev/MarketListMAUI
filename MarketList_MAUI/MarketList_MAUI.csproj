@@ -67,4 +67,10 @@
 		<PackageReference Include="DevExpress.Maui.DataGrid" Version="24.1.7" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <MauiXaml Update="Views\HistoricoPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>
