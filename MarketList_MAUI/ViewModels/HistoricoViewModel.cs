@@ -2,7 +2,7 @@
 
 public class HistoricoViewModel : ViewModelBase<Compra>
 {
-    public HistoricoViewModel() {}
+    public HistoricoViewModel() { }
 
     protected override void Load()
     {
@@ -19,4 +19,15 @@ public class HistoricoViewModel : ViewModelBase<Compra>
             new Compra { Id = 9, Mercado = "Beira Rio", RealizadaEm = DateTime.Now.AddDays(-3) }
         };
     }
+
+    private async void OpenCompra(Compra item)
+    {
+        var parameters = new Dictionary<string, object>
+        {
+            { "IdCompra" , item.Id }
+        };
+        await Shell.Current.GoToAsync(nameof(HistoricoDetailPage), true, parameters);
+    }
+
+    public ICommand OpenCompraCommand { get => new Command<Compra>(OpenCompra); }
 }

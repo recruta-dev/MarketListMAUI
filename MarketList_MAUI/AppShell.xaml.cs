@@ -7,5 +7,6 @@ public partial class AppShell : Shell
         InitializeComponent();
 
         Routing.RegisterRoute(nameof(HistoricoPage), typeof(HistoricoPage));
+        Routing.RegisterRoute(nameof(HistoricoDetailPage), typeof(HistoricoDetailPage));
     }
 }

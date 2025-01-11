@@ -12,6 +12,8 @@
                    HorizontalOptions="Center"/>
             <dx:DXCollectionView ItemsSource="{Binding ItemCollection}"
                                  SelectionMode="Single"
+                                 SelectedItem="{Binding CurrentItem}"
+                                 TapCommand="{Binding OpenCompraCommand}"
                                  ItemSeparatorThickness="1"
                                  ItemSeparatorColor="Grey">
                 <dx:DXCollectionView.ItemTemplate>
