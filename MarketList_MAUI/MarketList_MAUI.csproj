@@ -68,6 +68,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\HistoricoDetailPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\HistoricoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
