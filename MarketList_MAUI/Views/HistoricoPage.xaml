@@ -2,43 +2,43 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:dx="http://schemas.devexpress.com/maui"
-             x:Class="MarketList_MAUI.Views.HistoricoPage">
-    <AbsoluteLayout>
-        <ScrollView>
-            <StackLayout Padding="10">
-                <Label Text="Histórico de compras"
-                       FontSize="Large"
-                       Margin="0,0,0,40"
-                       HorizontalOptions="Center"/>
-                <dx:DXCollectionView ItemsSource="{Binding ItemCollection}"
-                                     SelectionMode="Single"
-                                     ItemSeparatorThickness="1"
-                                     ItemSeparatorColor="Grey">
-                    <dx:DXCollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid RowDefinitions="Auto,Auto"
-                                  ColumnDefinitions="Auto,*,Auto">
-                                <Label Grid.Column="0"
-                                       Grid.Row="0"
-                                       Text="{Binding Mercado}"/>
-                                <Label Grid.Column="2"
-                                       Grid.Row="1"
-                                       Text="{Binding RealizadaEm, StringFormat='{0:dd/MM/yyyy}'}"/>
-                            </Grid>
-                        </DataTemplate>
-                    </dx:DXCollectionView.ItemTemplate>
-                </dx:DXCollectionView>
-            </StackLayout>
-        </ScrollView>
+             x:Class="MarketList_MAUI.Views.HistoricoPage"
+             Padding="10">
+    <Grid>
+        <VerticalStackLayout>
+            <Label Text="Histórico de compras"
+                   FontSize="Large"
+                   Margin="0,0,0,40"
+                   HorizontalOptions="Center"/>
+            <dx:DXCollectionView ItemsSource="{Binding ItemCollection}"
+                                 SelectionMode="Single"
+                                 ItemSeparatorThickness="1"
+                                 ItemSeparatorColor="Grey">
+                <dx:DXCollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid RowDefinitions="Auto,Auto"
+                              ColumnDefinitions="Auto,*,Auto">
+                            <Label Grid.Column="0"
+                                   Grid.Row="0"
+                                   Text="{Binding Mercado}"/>
+                            <Label Grid.Column="2"
+                                   Grid.Row="1"
+                                   Text="{Binding RealizadaEm, StringFormat='{0:dd/MM/yyyy}'}"/>
+                        </Grid>
+                    </DataTemplate>
+                </dx:DXCollectionView.ItemTemplate>
+            </dx:DXCollectionView>
+        </VerticalStackLayout>
+
         <Button ImageSource="new_list"
                 WidthRequest="60"
                 HeightRequest="60"
                 CornerRadius="30"
-                Margin="0,0,10,10"
                 BackgroundColor="Grey"
                 TextColor="White"
                 FontAttributes="Bold"
-                AbsoluteLayout.LayoutBounds="1, 1, AutoSize, AutoSize"
-                AbsoluteLayout.LayoutFlags="PositionProportional"/>
-    </AbsoluteLayout>
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                Margin="0,0,0,10"/>
+    </Grid>
 </ContentPage>
