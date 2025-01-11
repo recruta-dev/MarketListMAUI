@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dx="http://schemas.devexpress.com/maui"
+             x:Class="MarketList_MAUI.Views.ListaComprasPage"
+             Padding="10">
+    <Grid>
+        <VerticalStackLayout Padding="10">
+            <Label Text="{Binding CurrentItem.Mercado}" 
+               FontSize="Large"
+               HorizontalOptions="Center"
+               Margin="0,0,0,40"/>
+            <dx:DXButton FontSize="16"
+                         Content="Terminar Compra"
+                         Command="{Binding TerminarCompraCommand}">
+            </dx:DXButton>
+            <dx:DXCollectionView ItemsSource="{Binding ItemCollection}"
+                                 ItemSpacing="20">
+                <dx:DXCollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="Auto,*,Auto"
+                          RowDefinitions="Auto,Auto">
+                            <Label Grid.Column="0"
+                               Grid.Row="0"
+                               Text="{Binding Nome, StringFormat='Nome: {0}'}"/>
+                            <Label Grid.Column="2"
+                               Grid.Row="0"
+                               Text="{Binding Descricao}"/>
+                            <dx:NumericEdit Grid.Column="0"
+                                        Grid.Row="1"
+                                        DisplayFormat="c"
+                                        Value="{Binding Valor}"/>
+                            <dx:CheckEdit Grid.Column="2"
+                                      Grid.Row="1"
+                                      AllowIndeterminateInput="True"
+                                      Label="{Binding Status, Converter={StaticResource StatusToTextConverter}}"
+                                      IsChecked="{Binding Status}"/>
+                        </Grid>
+                    </DataTemplate>
+                </dx:DXCollectionView.ItemTemplate>
+            </dx:DXCollectionView>
+        </VerticalStackLayout>
+        <dx:DXPopup IsOpen="{Binding ExibirPopup}"
+                    ScrimColor="Grey">
+            <Grid ColumnDefinitions="Auto,Auto,Auto"
+                  RowDefinitions="Auto,Auto">
+                <Label Text="Deseja terminar a compra?"
+                       HorizontalOptions="Center"
+                       Grid.ColumnSpan="3"
+                       Grid.Row="0"/>
+                <dx:DXButton Content="Não"
+                             Grid.Column="2"
+                             Grid.Row="1"/>
+                <dx:DXButton Content="Sim"
+                             Grid.Column="0"
+                             Grid.Row="1"/>
+            </Grid>
+        </dx:DXPopup>
+    </Grid>
+</ContentPage>

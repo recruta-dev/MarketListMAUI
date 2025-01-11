@@ -12,6 +12,7 @@
             </ResourceDictionary.MergedDictionaries>
             
             <converters:StatusToTextDecorationConverter x:Key="StatusToTextDecorationConverter"/>
+            <converters:StatusToTextConverter x:Key="StatusToTextConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

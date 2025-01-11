@@ -13,7 +13,7 @@
                           Route="HistoricoPage"/>
         </Tab>
         <Tab Title="Lista" Icon="clipboard">
-            <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
+            <ShellContent ContentTemplate="{DataTemplate views:ListaComprasPage}"
                           Route="MainPage"/>
         </Tab>
         <Tab Title="Alterar Senha" Icon="locked" IsVisible="False">

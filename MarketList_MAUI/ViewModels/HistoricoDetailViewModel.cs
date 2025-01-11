@@ -1,7 +1,7 @@
 ﻿namespace MarketList_MAUI.ViewModels;
 
 [QueryProperty(nameof(IdCompra), "IdCompra")]
-public class HistoricoDetailViewModel : ViewModelBase<Item>
+public class HistoricoDetailViewModel : ViewModelBase<Item, Item>
 {
     public HistoricoDetailViewModel() { }
 

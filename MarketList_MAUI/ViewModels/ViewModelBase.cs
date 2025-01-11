@@ -1,6 +1,6 @@
 ﻿namespace MarketList_MAUI.ViewModels;
 
-public abstract class ViewModelBase<TypeT> : INotifyPropertyChanged where TypeT : class
+public abstract class ViewModelBase<TypeT, ListTypeT> : INotifyPropertyChanged where TypeT : class where ListTypeT : class
 {
 	private TypeT? _currentItem;
 	public TypeT? CurrentItem
@@ -12,8 +12,8 @@ public abstract class ViewModelBase<TypeT> : INotifyPropertyChanged where TypeT 
 			OnPropertyChanged(nameof(CurrentItem));
 		}
 	}
-	private ObservableCollection<TypeT>? _itemCollection;
-	public ObservableCollection<TypeT>? ItemCollection
+	private ObservableCollection<ListTypeT>? _itemCollection;
+	public ObservableCollection<ListTypeT>? ItemCollection
 	{
 		get => _itemCollection;
 		set

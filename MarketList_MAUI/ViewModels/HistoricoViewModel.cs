@@ -1,6 +1,6 @@
 ﻿namespace MarketList_MAUI.ViewModels;
 
-public class HistoricoViewModel : ViewModelBase<Compra>
+public class HistoricoViewModel : ViewModelBase<Compra, Compra>
 {
     public HistoricoViewModel() { }
 

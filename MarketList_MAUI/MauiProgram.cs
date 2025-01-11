@@ -24,10 +24,12 @@ public static class MauiProgram
         //Views
         builder.Services.AddTransient<HistoricoPage>();
         builder.Services.AddTransient<HistoricoDetailPage>();
+        builder.Services.AddTransient<ListaComprasPage>();
 
         //ViewModels
-        builder.Services.AddScoped<ViewModelBase<Compra>, HistoricoViewModel>();
-        builder.Services.AddScoped<ViewModelBase<Item>, HistoricoDetailViewModel>();
+        builder.Services.AddScoped<ViewModelBase<Compra, Compra>, HistoricoViewModel>();
+        builder.Services.AddScoped<ViewModelBase<Item, Item>, HistoricoDetailViewModel>();
+        builder.Services.AddScoped<ViewModelBase<Compra, Item>, ListaCompraViewModel>();
 
         return builder.Build();
     }
