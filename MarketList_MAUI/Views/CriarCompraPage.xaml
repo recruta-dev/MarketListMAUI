@@ -7,17 +7,34 @@
              Padding="10">
     <Grid>
         <VerticalStackLayout>
-            <dx:TextEdit Text="{Binding CurrentItem.Mercado}"/>
-            <Grid ColumnDefinitions="*,Auto"
-                  Margin="0,20,0,20">
+            <dx:TextEdit Text="{Binding CurrentItem.Mercado}"
+                         LabelText="Mercado"/>
+            <VerticalStackLayout>
                 <dx:TextEdit LabelText="Produto"
-                             Grid.Column="0"
-                             Margin="0,0,10,0"/>
+                             Text="{Binding NovoProduto}"/>
+                <dx:TextEdit LabelText="Descrição"
+                             Text="{Binding NovoProduto}"/>
                 <dx:DXButton Content="Adicionar"
-                             Grid.Column="1"/>
-            </Grid>
+                             Command="{Binding AdicionarCommand}"
+                             CommandParameter="{Binding NovoProduto}"
+                             Margin="0,10"/>
+            </VerticalStackLayout>
             <dx:DXButton Content="Criar nova compra"
-                         VerticalOptions="End"/>
+                         VerticalOptions="End"
+                         Margin="0,10,0,20"/>
+            <dx:DXCollectionView ItemsSource="{Binding ItemCollection}"
+                                 SelectedItem="{Binding NovoProduto}"
+                                 SelectionMode="Single"
+                                 ItemSeparatorColor="Black"
+                                 ItemSeparatorThickness="1">
+                <dx:DXCollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <HorizontalStackLayout>
+                            <Label Text="{Binding Nome}"/>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </dx:DXCollectionView.ItemTemplate>
+            </dx:DXCollectionView>
         </VerticalStackLayout>
     </Grid>
 </ContentPage>
