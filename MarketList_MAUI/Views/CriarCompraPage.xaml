@@ -7,7 +7,7 @@
              Padding="10">
     <Grid>
         <VerticalStackLayout>
-            <dx:ComboBoxEdit ItemsSource="{Binding Mercados}"/>
+            <dx:TextEdit Text="{Binding CurrentItem.Mercado}"/>
             <Grid ColumnDefinitions="*,Auto"
                   Margin="0,20,0,20">
                 <dx:TextEdit LabelText="Produto"

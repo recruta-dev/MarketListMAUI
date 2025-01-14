@@ -23,6 +23,12 @@ public abstract class ViewModelBase<TypeT, ListTypeT> : INotifyPropertyChanged w
 		}
 	}
 
+	public ViewModelBase()
+	{
+		CurrentItem = Activator.CreateInstance<TypeT>();
+		ItemCollection = Activator.CreateInstance<ObservableCollection<ListTypeT>>();
+	}
+
 	protected virtual void Load() => throw new NotImplementedException();
 	public ICommand LoadCommand => new Command(Load);
     
