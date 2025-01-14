@@ -28,6 +28,11 @@ public class HistoricoViewModel : ViewModelBase<Compra, Compra>
         };
         await Shell.Current.GoToAsync(nameof(HistoricoDetailPage), true, parameters);
     }
+    private async void CriarCompra()
+    {
+        await Shell.Current.GoToAsync(nameof(CriarCompraPage), true);
+    }
 
     public ICommand OpenCompraCommand { get => new Command<Compra>(OpenCompra); }
+    public ICommand CriarCompraCommand => new Command(CriarCompra);
 }

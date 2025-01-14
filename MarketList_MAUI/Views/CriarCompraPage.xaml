@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dx="http://schemas.devexpress.com/maui"
+             x:Class="MarketList_MAUI.Views.CriarCompraPage"
+             Title="Criar nova lista de compras"
+             Padding="10">
+    <Grid>
+        <VerticalStackLayout>
+            <dx:ComboBoxEdit ItemsSource="{Binding Mercados}"/>
+            <Grid ColumnDefinitions="*,Auto"
+                  Margin="0,20,0,20">
+                <dx:TextEdit LabelText="Produto"
+                             Grid.Column="0"
+                             Margin="0,0,10,0"/>
+                <dx:DXButton Content="Adicionar"
+                             Grid.Column="1"/>
+            </Grid>
+            <dx:DXButton Content="Criar nova compra"
+                         VerticalOptions="End"/>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

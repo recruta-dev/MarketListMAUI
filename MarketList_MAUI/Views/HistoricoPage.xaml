@@ -41,6 +41,7 @@
                 FontAttributes="Bold"
                 VerticalOptions="End"
                 HorizontalOptions="End"
-                Margin="0,0,0,10"/>
+                Margin="0,0,0,10"
+                Command="{Binding CriarCompraCommand}"/>
     </Grid>
 </ContentPage>
