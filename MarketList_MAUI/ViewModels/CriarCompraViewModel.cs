@@ -2,24 +2,26 @@
 
 public class CriarCompraViewModel : ViewModelBase<Compra, Item>
 {
-	private string? _novoProduto;
-	public string? NovoProduto
+	private Item _produto;
+	public Item Produto
 	{
-		get => _novoProduto;
+		get => _produto;
 		set
-		{
-			_novoProduto = value;
-			OnPropertyChanged(nameof(NovoProduto));
+		{ 
+			_produto = value;
+			OnPropertyChanged(nameof(Produto));
 		}
 	}
 
-
-	public CriarCompraViewModel() { }
+	public CriarCompraViewModel()
+	{
+		Produto = new Item();
+	}
 
 	private void Adicionar(string produto)
 	{
-		ItemCollection!.Add(new Item { Nome = produto });
-		NovoProduto = string.Empty;
+		ItemCollection!.Add(Produto);
+		Produto = new Item();
 		OnPropertyChanged(nameof(ItemCollection));
 	}
 

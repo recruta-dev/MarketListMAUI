@@ -11,9 +11,9 @@
                          LabelText="Mercado"/>
             <VerticalStackLayout>
                 <dx:TextEdit LabelText="Produto"
-                             Text="{Binding NovoProduto}"/>
+                             Text="{Binding Produto.Nome}"/>
                 <dx:TextEdit LabelText="Descrição"
-                             Text="{Binding NovoProduto}"/>
+                             Text="{Binding Produto.Descricao}"/>
                 <dx:DXButton Content="Adicionar"
                              Command="{Binding AdicionarCommand}"
                              CommandParameter="{Binding NovoProduto}"
@@ -23,7 +23,7 @@
                          VerticalOptions="End"
                          Margin="0,10,0,20"/>
             <dx:DXCollectionView ItemsSource="{Binding ItemCollection}"
-                                 SelectedItem="{Binding NovoProduto}"
+                                 SelectedItem="{Binding Produto}"
                                  SelectionMode="Single"
                                  ItemSeparatorColor="Black"
                                  ItemSeparatorThickness="1">
@@ -31,6 +31,7 @@
                     <DataTemplate>
                         <HorizontalStackLayout>
                             <Label Text="{Binding Nome}"/>
+                            <Label Text="{Binding Descricao, StringFormat=' - {0}'}"/>
                         </HorizontalStackLayout>
                     </DataTemplate>
                 </dx:DXCollectionView.ItemTemplate>
