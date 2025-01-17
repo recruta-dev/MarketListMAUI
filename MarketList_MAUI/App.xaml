@@ -13,6 +13,7 @@
             
             <converters:StatusToTextDecorationConverter x:Key="StatusToTextDecorationConverter"/>
             <converters:StatusToTextConverter x:Key="StatusToTextConverter"/>
+            <converters:BoolConverter x:Key="BoolConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
