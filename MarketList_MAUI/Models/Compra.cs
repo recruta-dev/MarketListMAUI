@@ -1,9 +1,14 @@
 ﻿namespace MarketList_MAUI.Models;
 
+[Table("Compra")]
 public class Compra : INotifyPropertyChanged
 {
+    [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
+
     public DateTime? RealizadaEm { get; set; }
+
+    [MaxLength(80)]
     public string? Mercado { get; set; }
 
     private decimal _valorTotal;

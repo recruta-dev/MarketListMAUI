@@ -11,3 +11,5 @@ global using MarketList_MAUI.Views;
 global using DevExpress.Maui;
 
 global using Microsoft.Extensions.Logging;
+
+global using SQLite;

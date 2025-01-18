@@ -1,10 +1,17 @@
 ﻿namespace MarketList_MAUI.Models;
 
+[Table("Item")]
 public class Item : INotifyPropertyChanged
 {
+    [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
+
     public int IdCompra { get; set; }
+
+    [MaxLength(80)]
     public string? Nome { get; set; }
+
+    [MaxLength(200)]
     public string? Descricao { get; set; }
     
     private decimal _valor;
