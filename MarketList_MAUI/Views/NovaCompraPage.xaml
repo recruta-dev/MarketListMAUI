@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dx="http://schemas.devexpress.com/maui"
+             x:Class="MarketList_MAUI.Views.NovaCompraPage"
+             Shell.TabBarIsVisible="False"
+             Title="NovaCompra">
+    <Grid>
+        <VerticalStackLayout>
+            <dx:TextEdit Text="{Binding Mercado}"
+                     IsEnabled="{Binding MercadoPreenchido, Converter={StaticResource BoolConverter}}"
+                     ReturnCommand="{Binding PreencherMercadoCommand}"
+                     PlaceholderText="Mercado"
+                     PlaceholderColor="Grey"
+                     BorderThickness="0"
+                     BoxMode="Filled"/>
+            <dx:DXCollectionView ItemsSource="{Binding Produtos}"
+                                 SelectedItem="{Binding ProdutoSelecionado}"
+                                 ItemSeparatorColor="Black"
+                                 ItemSeparatorThickness="1">
+                <dx:DXCollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <dx:SwipeContainer FullSwipeMode="Both">
+                            <dx:SwipeContainer.ItemView>
+                                <HorizontalStackLayout Margin="0" Spacing="0" BackgroundColor="Blue">
+                                    <dx:TextEdit Margin="5" 
+                                                 BoxMode="Outlined"
+                                                 ClearIconVisibility="Never"
+                                                 PlaceholderText="Insira o nome do produto..."
+                                                 PlaceholderColor="LightGray"
+                                                 TextColor="LightGray"
+                                                 BorderThickness="0"
+                                                 DisabledBorderThickness="0"
+                                                 FocusedBorderThickness="0"
+                                                 IsEnabled="{Binding Habilitado}"
+                                                 Text="{Binding Nome}"
+                                                 ReturnType="Done"/>
+                                    <dx:NumericEdit BoxMode="Outlined"
+                                                    ClearIconVisibility="Never"
+                                                    PlaceholderText="R$"
+                                                    PlaceholderColor="LightGray"
+                                                    TextColor="White"
+                                                    BorderThickness="0"
+                                                    DisabledBorderThickness="0"
+                                                    FocusedBorderThickness="0"
+                                                    DisplayFormat="c"
+                                                    Value="{Binding Valor}"
+                                                    ReturnType="Done"
+                                                    ValueChanged="NumericEdit_ValueChanged"/>
+                                </HorizontalStackLayout>
+                            </dx:SwipeContainer.ItemView>
+                            <dx:SwipeContainer.StartSwipeItems>
+                                <dx:SwipeContainerItem Caption="Comprar"
+                                                       BackgroundColor="Green"/>
+                            </dx:SwipeContainer.StartSwipeItems>
+                            <dx:SwipeContainer.EndSwipeItems>
+                                <dx:SwipeContainerItem Caption="Remover"
+                                                       BackgroundColor="Red"/>
+                            </dx:SwipeContainer.EndSwipeItems>
+                        </dx:SwipeContainer>
+                    </DataTemplate>
+                </dx:DXCollectionView.ItemTemplate>
+            </dx:DXCollectionView>
+        </VerticalStackLayout>
+        <Button ImageSource="new_list"
+                WidthRequest="60"
+                HeightRequest="60"
+                CornerRadius="30"
+                BackgroundColor="Grey"
+                TextColor="White"
+                FontAttributes="Bold"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                Margin="0,0,10,10"
+                IsEnabled="{Binding MercadoPreenchido}"
+                Command="{Binding AdicionarCommand}"/>
+        <Label FontAttributes="Bold"
+               VerticalOptions="End"
+               HorizontalOptions="Start"
+               Margin="30,0,0,15"
+               BackgroundColor="White"
+               Padding="15"
+               Text="{Binding ValorTotal, StringFormat='Total: R$ {0:n2}'}"/>
+    </Grid>
+</ContentPage>

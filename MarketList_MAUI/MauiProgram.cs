@@ -26,12 +26,14 @@ public static class MauiProgram
         builder.Services.AddTransient<HistoricoDetailPage>();
         builder.Services.AddTransient<ListaComprasPage>();
         builder.Services.AddTransient<CriarCompraPage>();
+        builder.Services.AddTransient<NovaCompraPage>();
 
         //ViewModels
         builder.Services.AddScoped<ViewModelBase<Compra, Compra>, HistoricoViewModel>();
         builder.Services.AddScoped<ViewModelBase<Item, Item>, HistoricoDetailViewModel>();
         builder.Services.AddScoped<ViewModelBase<Compra, Item>, ListaCompraViewModel>();
         builder.Services.AddScoped<CriarCompraViewModel>();
+        builder.Services.AddScoped<NovaCompraViewModelAbstract, NovaCompraViewModel>();
 
         //Repositories
         builder.Services.AddSingleton<RepositoryAbstract<Compra>, CompraRepository>();

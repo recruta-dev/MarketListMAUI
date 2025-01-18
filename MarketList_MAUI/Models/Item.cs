@@ -8,8 +8,18 @@ public class Item : INotifyPropertyChanged
 
     public int IdCompra { get; set; }
 
+    private string? _nome;
+
     [MaxLength(80)]
-    public string? Nome { get; set; }
+    public string? Nome
+    {
+        get => _nome;
+        set 
+        { 
+            _nome = value;
+            OnPropertyChanged(nameof(Nome));
+        }
+    }
 
     [MaxLength(200)]
     public string? Descricao { get; set; }
@@ -33,6 +43,17 @@ public class Item : INotifyPropertyChanged
         { 
             _status = value;
             OnPropertyChanged(nameof(Status));
+        }
+    }
+
+    private bool _habilitado;
+    public bool Habilitado
+    {
+        get => _habilitado;
+        set 
+        { 
+            _habilitado = value;
+            OnPropertyChanged(nameof(Habilitado));
         }
     }
 
