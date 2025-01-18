@@ -7,6 +7,7 @@ global using System.Globalization;
 global using MarketList_MAUI.Models;
 global using MarketList_MAUI.ViewModels;
 global using MarketList_MAUI.Views;
+global using MarketList_MAUI.Interfaces;
 
 global using DevExpress.Maui;
 
