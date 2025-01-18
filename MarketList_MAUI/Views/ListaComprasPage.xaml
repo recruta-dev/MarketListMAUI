@@ -2,59 +2,64 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:dx="http://schemas.devexpress.com/maui"
-             x:Class="MarketList_MAUI.Views.ListaComprasPage"
-             Padding="10">
-    <Grid>
-        <VerticalStackLayout Padding="10">
-            <Label Text="{Binding CurrentItem.Mercado}" 
+             x:Class="MarketList_MAUI.Views.ListaComprasPage">
+    <VerticalStackLayout Padding="10">
+        <Label Text="{Binding CurrentItem.Mercado}" 
                FontSize="Large"
                HorizontalOptions="Center"
                Margin="0,0,0,40"/>
-            <dx:DXButton FontSize="16"
-                         Content="Terminar Compra"
-                         Command="{Binding TerminarCompraCommand}">
-            </dx:DXButton>
-            <dx:DXCollectionView ItemsSource="{Binding ItemCollection}"
-                                 ItemSpacing="20">
-                <dx:DXCollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid ColumnDefinitions="Auto,*,Auto"
+        <dx:DXCollectionView ItemsSource="{Binding ItemCollection}"
+                             ItemSpacing="20"
+                             HeightRequest="400">
+            <dx:DXCollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="Auto,*,Auto"
                           RowDefinitions="Auto,Auto">
-                            <Label Grid.Column="0"
+                        <Label Grid.Column="0"
                                Grid.Row="0"
                                Text="{Binding Nome, StringFormat='Nome: {0}'}"/>
-                            <Label Grid.Column="2"
+                        <Label Grid.Column="2"
                                Grid.Row="0"
                                Text="{Binding Descricao}"/>
-                            <dx:NumericEdit Grid.Column="0"
+                        <dx:NumericEdit Grid.Column="0"
                                         Grid.Row="1"
                                         DisplayFormat="c"
-                                        Value="{Binding Valor}"/>
-                            <dx:CheckEdit Grid.Column="2"
+                                        Value="{Binding Valor}"
+                                        ValueChanged="NumericEdit_ValueChanged"/>
+                        <dx:CheckEdit Grid.Column="2"
                                       Grid.Row="1"
                                       AllowIndeterminateInput="True"
                                       Label="{Binding Status, Converter={StaticResource StatusToTextConverter}}"
                                       IsChecked="{Binding Status}"/>
-                        </Grid>
-                    </DataTemplate>
-                </dx:DXCollectionView.ItemTemplate>
-            </dx:DXCollectionView>
-        </VerticalStackLayout>
+                    </Grid>
+                </DataTemplate>
+            </dx:DXCollectionView.ItemTemplate>
+        </dx:DXCollectionView>
+        <Label Text="{Binding CurrentItem.ValorTotal, StringFormat='Total -> R$ {0:n2}'}"
+               Margin="0,30,0,0"/>
+        <dx:DXButton FontSize="16"
+                     Content="Terminar Compra"
+                     Command="{Binding TerminarCompraCommand}"
+                     Margin="0,30,0,0"/>
         <dx:DXPopup IsOpen="{Binding ExibirPopup}"
-                    ScrimColor="Grey">
+                    ScrimColor="Gray">
             <Grid ColumnDefinitions="Auto,Auto,Auto"
-                  RowDefinitions="Auto,Auto">
+                  RowDefinitions="Auto,Auto"
+                  Padding="20">
                 <Label Text="Deseja terminar a compra?"
                        HorizontalOptions="Center"
                        Grid.ColumnSpan="3"
-                       Grid.Row="0"/>
+                       Grid.Row="0"
+                       Margin="20"/>
                 <dx:DXButton Content="Não"
                              Grid.Column="2"
-                             Grid.Row="1"/>
+                             Grid.Row="1"
+                             Command="{Binding CancelarCommand}"/>
                 <dx:DXButton Content="Sim"
                              Grid.Column="0"
-                             Grid.Row="1"/>
+                             Grid.Row="1"
+                             Command="{Binding ConfirmarCommand}"/>
             </Grid>
         </dx:DXPopup>
-    </Grid>
+    </VerticalStackLayout>
 </ContentPage>

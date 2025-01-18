@@ -60,10 +60,25 @@ public class ListaCompraViewModel : ViewModelBase<Compra, Item>
         };
     }
 
-    public void TerminarCompra()
+    private void TerminarCompra()
     {
         ExibirPopup = true;
     }
+    private void AlterarValor()
+    {
+        CurrentItem!.ValorTotal = ItemCollection!.Sum(a => a.Valor);
+    }
+    private void Cancelar()
+    {
+        ExibirPopup = false;
+    }
+    private void Confirmar()
+    {
+        ExibirPopup = false;
+    }
 
     public ICommand TerminarCompraCommand => new Command(TerminarCompra);
+    public ICommand AlterarValorCommand => new Command(AlterarValor);
+    public ICommand CancelarCommand => new Command(Cancelar);
+    public ICommand ConfirmarCommand => new Command(Confirmar);
 }

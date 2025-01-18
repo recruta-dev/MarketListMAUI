@@ -18,4 +18,10 @@ public partial class ListaComprasPage : ContentPage
 
 		_viewModel.LoadCommand.Execute(null);
     }
+
+    private void NumericEdit_ValueChanged(object sender, EventArgs e)
+    {
+		var viewModel = (ListaCompraViewModel)_viewModel;
+		viewModel.AlterarValorCommand.Execute(null);
+    }
 }
