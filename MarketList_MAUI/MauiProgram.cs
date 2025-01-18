@@ -33,6 +33,10 @@ public static class MauiProgram
         builder.Services.AddScoped<ViewModelBase<Compra, Item>, ListaCompraViewModel>();
         builder.Services.AddScoped<CriarCompraViewModel>();
 
+        //Repositories
+        builder.Services.AddSingleton<RepositoryAbstract<Compra>, CompraRepository>();
+        builder.Services.AddSingleton<RepositoryAbstract<Item>, ItemRepository>();
+
         return builder.Build();
     }
 }
